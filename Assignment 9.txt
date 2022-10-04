@@ -1,0 +1,326 @@
+Assignment - 9 A Job Ready Bootcamp in C++, DSA and IOT MySirG
+
+Switch Case Problems
+
+1. Write a program which takes the month number as an input and display
+   number of days in that month.
+2. Write a menu driven program with the following options:
+      a. Addition
+	b. Subtraction
+	c. Multiplication
+	d. Division
+	e. Exit
+3. Write a program which takes the day number of a week and displays a
+	unique greeting message for the day.
+4. Write a menu driven program with the following options:
+	a. Check whether a given set of three numbers are lengths of an
+		isosceles triangle or not
+	b. Check whether a given set of three numbers are lengths of sides of
+		a right angled triangle or not
+	c. Check whether a given set of three numbers are equilateral triangle
+		or not
+	d. Exit
+5. Convert the following if-else-if construct into switch case:
+	if(var == 1)
+		System.out.println("good");
+	else if(var == 2)
+		System.out.println("better");
+	else if(var == 3)
+		System.out.println("best");
+	else
+		System.out.println("invalid");
+
+6. Program to check whether a year is a leap year or not. Using switch
+	statement
+
+7. Program to take the value from the user as input electricity unit charges
+	and calculate total electricity bill according to the given condition . Using
+	the switch statement.
+	For the first 50 units Rs. 0.50/unit
+	For the next 100 units Rs. 0.75/unit
+	For the next 100 units Rs. 1.20/unit
+	For units above 250 Rs. 1.50/unit
+	An additional surcharge of 20% is added to the bill.
+8. Program to convert a positive number into a negative number and negative
+	number into a positive number using a switch statement.
+9. Program to Convert even number into its upper nearest odd number
+	Switch Statement.
+10. C program to find all roots of a quadratic equation using switch case
+
+
+Solutions: 
+
+
+Ans.1 :- #include<stdio.h>
+	   int main(){
+    		int mn;
+	    	printf("Enter the month number :- ");
+    		scanf("%d",&mn);
+    		switch(mn){
+        		case 1 :
+        		case 3 :
+        		case 5 :
+        		case 7 :
+        		case 8 :
+        		case 10 :
+        		case 12 : printf("Number of days in this week : 31");
+                  		  break;
+        		case 4 :
+        		case 6 :
+        		case 9 :
+        		case 11 : printf("Number of days in this week : 30");
+                 		   	  break;
+        		case 2 : printf("Number of days in this week : 28");
+                  		  break;
+        		default : printf("Invalid month number\n");
+    		}
+    		return 0;
+	   }
+
+Ans.2 :- #include<stdio.h>
+	   #include<conio.h>
+	   #include<process.h>
+
+	   int main(){
+    		float a,b;
+    		char ch;
+    		while(1){
+        		printf("\n\t\tMENU\na. Addition\nb. Subtraction\nc. Multiplication\nd. Division\ne. Exit");
+        		printf("\n\nEnter your choice :- ");
+        		scanf("%c",&ch);
+        		switch(ch){
+            		case 'a' :
+            		case 'A' :  printf("Enter two numbers :- ");
+                        		scanf("%f %f",&a,&b);
+                        		fflush(stdin);
+                        		printf("Addition of these numbers is :- %0.2f",a+b);
+                        		break;
+            		case 'b' :
+            		case 'B' :  printf("Enter two numbers :- ");
+                        		scanf("%f %f",&a,&b);
+                        		fflush(stdin);
+                        		printf("Subtraction of these numbers is :- %0.2f",a-b);
+                        		break;
+            		case 'c' :
+            		case 'C' :  printf("Enter two numbers :- ");
+                        		scanf("%f %f",&a,&b);
+                        		fflush(stdin);
+                        		printf("Multiplication of these numbers is :- %0.2f",a*b);
+                        		break;
+            		case 'd' :
+            		case 'D' :  printf("Enter two numbers :- ");
+                        		scanf("%f %f",&a,&b);
+                        		fflush(stdin);
+                        		printf("Division of these numbers is :- %0.2f",a/b);
+                        		break;
+            		case 'e' :
+            		case 'E' :  exit(0);
+
+            		default : printf("Invalid choice\n");
+        			}
+				getch();
+    			}
+    		return 0;
+	   }
+
+Ans.3 :-  #include<stdio.h>
+	    int main(){
+    		int dn;
+	    	printf("Enter the day number of the week :- ");
+    		scanf("%d",&dn);
+    		switch(dn){
+        		case 1 : printf("Hello, its monday today.\n");
+                  		 break;
+        		case 2 : printf("Good morning, its tuesday today.\n");
+                  		 break;
+        		case 3 : printf("How's your wednesday today?.\n");
+                  		 break;
+        		case 4 : printf("Thursday vibes.\n");
+                  		 break;
+        		case 5 : printf("Fry something new on Friday .\n");
+                  		 break;
+        		case 6 : printf("Saturday! Saturday! Saturday!.\n");
+                  		 break;
+        		case 7 : printf("Sun-day Fun-day.\n");
+                  		 break;
+        		default : printf("Invalid day number\n");
+    		}
+    		return 0;
+	   }
+
+Ans.4 :-	#include<stdio.h>
+        	#include<process.h>
+
+	  	int main(){
+	    		int a,b,c,choice;
+		    	printf("Enter three sets of numbers :- ");
+    			scanf("%d %d %d",&a,&b,&c);
+      	      printf("\t\t\tMenu\n\n");
+      	      printf("1. To check whether a given set of three numbers are lengths of an isosceles triangle or not \n");
+	     	      printf("2. To check whether a given set of three numbers are lengths of sides of a right angled triangle or not\n");
+	     	      printf("3. To check whether a given set of three numbers are equilateral triangle or not\n");
+	        	printf("4. Exit\n");
+            	printf("Enter your choice: ");
+            	scanf("%d",&choice);
+    			switch(choice){
+        			case 1 : if((a==b && a!=c) || (b==c && b!=a) ||(c==a && c!=b)){
+                 		           printf("Yes! these are sides of an isosceles triangle.\n");
+                  	       }
+                  	       else{
+                  	          printf("No! these are not the sides of an isosceles triangle.\n");
+                  	       }
+                  		 break;
+        			case 2 : if(((a*a) == (b*b+c*c)) || ((b*b) == (a*a+c*c)) || ((c*c) == (b*b+a*a))){
+                        	    printf("These are the sides of a right angled triangle.\n");
+                        	 }
+                        	 else{
+                        	    printf("These are not the sides of a right angled triangle.\n");
+                        	 }
+                  		 break;
+        			case 3 : if(a==b && b==c && c==a){
+                  	           printf("These are the sides of an equilateral triangle.\n");
+                  	       }
+                  	       else{
+                  	           printf("These are not the sides of an equilateral triangle.\n");
+                       		 }
+                  		 break;
+	        		case 4 : exit(0);
+	
+      	  		default : printf("Invalid day number\n");
+    			}
+    			return 0;
+	   	}
+
+Ans-5:  #include<stdio.h>
+
+        int main(){
+        
+            int var;
+            printf("Enter the value of var: ");
+            scanf("%d",&var);
+            switch(var){
+                case 1: printf("Good\n");
+                        break;
+                case 2: printf("Good\n");
+                        break;
+                case 3: printf("Good\n");
+                        break;
+                default: printf("Invalid\n");
+            }
+
+            return 0;
+        }
+
+Ans-6:  #include<stdio.h>
+
+        int main(){
+        
+            int year,r;
+            printf("Enter the year: ");
+            scanf("%d",&year);
+            r = ((year%400==0) || (year%100!=0 && year%4==0))?1:0;
+            switch(r){
+                case 0 : printf("Not a leap year\n");
+                                 break;
+                case 1 : printf("Leap year\n");
+                                 break;
+                default:         printf("Invalid\n");
+            }
+
+            return 0;
+        }
+
+Ans-7:  #include<stdio.h>
+
+        int main(){
+        
+            int euc,r;
+            float amt;
+            printf("Enter the electricity unit charges: ");
+            scanf("%d",&euc);
+            r = euc;
+            if(euc>250){
+                r = 251;
+            }
+            
+            switch(r){
+                case 0 ... 50     : amt = euc*0.50;
+                                    break;
+                case 51 ... 150   : amt = 50*0.50 + (euc-50)*0.75;
+                                    break;
+                case 151 ... 250  : amt = 50*0.50 + 100*0.75 + (euc-150)*1.20;
+                                    break;
+                case 251          : amt = 50*0.50 + 100*0.75 + 100*1.20 + (euc-250)*1.50;
+                                    break;
+                default:         printf("Invalid unit enetered\n");
+            }
+
+            amt = amt + amt*20/100.0;
+            printf("Total amount to be paid : %0.2f\n",amt);
+
+            return 0;
+        }
+
+Ans-8:  #include<stdio.h>
+
+        int main(){
+        
+            int num,r;
+            printf("Enter a number: ");
+            scanf("%d",&num);
+            r = (num>0)?1:-1;
+            switch(r){
+                case 1   : num = num*-1;
+                            break;
+                case -1  : num = num*-1;
+                            break;
+                default  : printf("Invalid number enetered\n");
+            }
+            printf("Final output: %d\n",num);
+
+            return 0;
+        }
+
+Ans-9:  #include<stdio.h>
+
+        int main(){
+        
+            int num,r;
+            printf("Enter an even number: ");
+            scanf("%d",&num);
+            r = (num%2)?-1:1;
+            switch(r){
+                case 1   : num = num+1;
+                            break;
+                case -1  : num = num+2;
+                            break;
+                default  : printf("Invalid number enetered\n");
+            }
+            printf("Final output: %d\n",num);
+
+            return 0;
+        }
+
+Ans-10: #include<stdio.h>
+        #include<math.h>
+
+        int main(){
+        
+            float a,b,c,d,r1,r2;
+            short int r;
+            printf("Enter a,b and c of the quadratic equation: ");
+            scanf("%f%f%f",&a,&b,&c);
+            d = b*b-4*a*c;
+            r = (d>=0)?1:-1;
+            switch(r){
+                case 1   : r1 = (-1*b + sqrt(d))/2*a;
+                           r2 = (-1*b - sqrt(d))/2*a;
+                            printf("Roots are: %0.2f and %0.2f\n",r1,r2);
+                            break;
+                case -1  : printf("Imaginary roots\n");
+                            break;
+                default  : printf("Invalid number enetered\n");
+            }
+
+            return 0;
+        }

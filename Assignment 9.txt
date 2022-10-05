@@ -215,18 +215,27 @@ Ans-6:  #include<stdio.h>
 
         int main(){
         
-            int year,r;
+            int year;
             printf("Enter the year: ");
             scanf("%d",&year);
-            r = ((year%400==0) || (year%100!=0 && year%4==0))?1:0;
-            switch(r){
-                case 0 : printf("Not a leap year\n");
-                                 break;
-                case 1 : printf("Leap year\n");
-                                 break;
-                default:         printf("Invalid\n");
+            switch((year%100) == 0){
+                case 1: switch((year%400) == 0){
+                            case 1: printf("Leap year\n");
+                                    break;
+                            case 0: printf("Not a leap year\n");
+                                    break;
+                        }
+                        break;
+                case 0: switch((year%4) == 0){
+                            case 1: printf("Leap year\n");
+                                    break;
+                            case 0: printf("Not a leap year\n");
+                                    break;
+                        }
+                        break;
+                default: printf("Invalid year\n");
             }
-
+        
             return 0;
         }
 
@@ -265,14 +274,13 @@ Ans-8:  #include<stdio.h>
 
         int main(){
         
-            int num,r;
+            int num;
             printf("Enter a number: ");
             scanf("%d",&num);
-            r = (num>0)?1:-1;
-            switch(r){
+            switch(num>0){
                 case 1   : num = num*-1;
                             break;
-                case -1  : num = num*-1;
+                case 0   : num = num*-1;
                             break;
                 default  : printf("Invalid number enetered\n");
             }
@@ -285,14 +293,13 @@ Ans-9:  #include<stdio.h>
 
         int main(){
         
-            int num,r;
+            int num;
             printf("Enter an even number: ");
             scanf("%d",&num);
-            r = (num%2)?-1:1;
-            switch(r){
+            switch((num%2)==0){
                 case 1   : num = num+1;
                             break;
-                case -1  : num = num+2;
+                case 0   : num = num+2;
                             break;
                 default  : printf("Invalid number enetered\n");
             }
@@ -307,17 +314,15 @@ Ans-10: #include<stdio.h>
         int main(){
         
             float a,b,c,d,r1,r2;
-            short int r;
             printf("Enter a,b and c of the quadratic equation: ");
             scanf("%f%f%f",&a,&b,&c);
             d = b*b-4*a*c;
-            r = (d>=0)?1:-1;
-            switch(r){
+            switch(d>=0){
                 case 1   : r1 = (-1*b + sqrt(d))/2*a;
                            r2 = (-1*b - sqrt(d))/2*a;
                             printf("Roots are: %0.2f and %0.2f\n",r1,r2);
                             break;
-                case -1  : printf("Imaginary roots\n");
+                case 0   : printf("Imaginary roots\n");
                             break;
                 default  : printf("Invalid number enetered\n");
             }
